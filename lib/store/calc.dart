@@ -22,7 +22,7 @@ class CalcStore {
   DateTime test = DateTime.now();
 
   void write(String content, String type) {
-    current = (justSet == true && type == 'chiffre') ? content : current + content;
+    current = (justSet == true && (type == 'chiffre' || content == '√')) ? content : content == '√' ? content + current : current + content;
     if (justSet == true && type == 'chiffre') history = '';
     justSet = false;
   }
